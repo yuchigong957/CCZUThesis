@@ -1,0 +1,71 @@
+% !TeX root = ../main.tex
+
+% 中英文摘要和关键字
+
+\begin{abstract}
+随着移动机器人在智能巡检、无人配送、灾害救援等复杂场景中的广泛应用，
+对自主定位与环境感知能力提出了更高要求。传统激光或视觉同步定位与地图构建（SLAM）技术在
+光照变化、环境退化、动态遮挡及重复场景等复杂条件下，容易出现定位精度下降、回环检测失败
+及累积误差增大的问题。为提高机器人在复杂环境中的定位鲁棒性与环境感知能力，本文围绕多模
+态信息辅助的机器人位姿优化开展研究，引入声源定位信息作为新的环境观测，为机器人定位提供
+补充约束。
+
+首先，针对复杂声学环境下声源定位精度不足的问题，研究了一种基于通道—频谱—时间特征建模的
+声源定位方法。结合卷积神经网络、通道-频谱-时间特征重标定模块以及时序建模网络，对多通道
+声学信号进行联合建模，提高了声源方向估计的准确性和鲁棒性，并通过公开数据集验证了所提方
+法的有效性。其次，围绕机器人位姿优化问题，研究声源定位信息与激光惯性里程计系统的融合方
+法，分析声学信息在回环检测、位姿约束及后端优化中的应用方式，探索声学观测与几何观测协同
+优化机制，为复杂环境下机器人定位提供新的信息来源。最后，基于ROS平台构建多模态机器人定
+位实验系统，在仿真环境及真实场景下开展实验，对声源定位性能、多模态融合定位精度及系统鲁
+棒性进行综合验证。
+
+本文研究工作实现了声学感知与机器人定位技术的有机结合，为多模态SLAM系统提供了一种新的
+环境感知思路。研究结果表明，利用声源定位信息能够为机器人位姿估计提供有效补充，在复杂
+环境下具有提升系统鲁棒性和定位精度的潜力，对智能机器人自主导航与多传感器融合感知具有
+一定的理论意义和应用价值。
+    \hdusetup{
+        keywords = {关键词1、 关键词2、 关键词3、 关键词4、 关键词5},
+    }
+\end{abstract}
+
+\begin{abstract*}
+With the rapid development of intelligent inspection, autonomous delivery, and 
+emergency rescue, mobile robots have placed higher demands on autonomous 
+localization and environmental perception. Conventional simultaneous localization 
+and mapping (SLAM) systems based on LiDAR or vision often suffer from degraded 
+localization accuracy, unreliable loop closure detection, and accumulated drift 
+in challenging environments with illumination changes, dynamic obstacles, 
+repetitive structures, and feature degradation. To improve the robustness and 
+accuracy of robot localization, this thesis investigates multi-modal 
+information-assisted robot pose optimization by introducing sound source 
+localization (SSL) as an additional environmental observation to complement 
+conventional geometric measurements.
+
+First, to address the limited robustness of sound source localization in complex 
+acoustic environments, a sound source localization method based on channel-spectro-temporal 
+feature modeling is studied. By integrating convolutional neural networks, channel-spectro-temporal 
+feature recalibration, and temporal modeling networks, the proposed method jointly exploits 
+multi-channel acoustic signals to improve the accuracy and robustness of direction-of-arrival 
+estimation. The effectiveness of the proposed approach is validated on public benchmark datasets. 
+Subsequently, a multi-modal fusion framework for robot pose optimization is investigated by 
+incorporating acoustic observations into a LiDAR-inertial odometry system. The potential roles of 
+acoustic information in loop closure detection, pose constraints, and back-end optimization are 
+analyzed, and a collaborative optimization mechanism combining acoustic and geometric observations 
+is explored to provide complementary information for robot localization in challenging environments. 
+Finally, a multi-modal robot localization system is developed based on the Robot Operating System 
+(ROS), and comprehensive experiments in both simulation and real-world environments are conducted 
+to evaluate the performance of sound source localization, localization accuracy, and overall system 
+robustness.
+
+This work combines acoustic perception with robot localization and provides a new perspective 
+for multi-modal SLAM systems. The results demonstrate that sound source localization has the 
+potential to provide effective complementary constraints for robot pose estimation, thereby 
+improving localization robustness and accuracy in complex environments. The proposed framework 
+offers both theoretical significance and practical value for autonomous navigation and 
+multi-sensor perception in intelligent robotic systems.
+
+
+    \hdusetup{
+        keywords* = {Robot localization, Simultaneous Localization and Mapping (SLAM), Sound Source Localization, Multi-modal Fusion, Pose Optimization},
+    }
+\end{abstract*}

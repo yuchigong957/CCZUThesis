@@ -1,0 +1,65 @@
+% !TeX root = ../main.tex
+% 对应 demo.pdf 的页面坐标；个人信息留空。
+\makeatletter
+\newcommand{\cczuplace}[4]{\put(#1,-#2){\parbox[t]{#3bp}{\vspace{0pt}#4}}}
+\newcommand{\cczurule}[1]{\underline{\makebox[207bp]{\strut #1}}}
+\newcommand{\cczulabel}[1]{\makebox[136bp][s]{#1}}
+\newcommand{\cczusignature}[2][224bp]{\noindent
+  \makebox[#1][l]{#2：\underline{\hspace{120bp}}}%
+  \makebox[\dimexpr434bp-#1\relax][s]{签字日期：\hfill 年\hfill 月\hfill 日}\par}
+\newcommand{\cczuoverlay}[1]{%
+  \AddToShipoutPictureFG*{\AtPageUpperLeft{%
+    \setlength{\unitlength}{1bp}#1}}}
+\thispagestyle{empty}\null
+\cczuoverlay{%
+  \cczuplace{85}{88}{434}{\raggedleft\fangsong\zihao{3}
+    学号：\underline{\makebox[100bp]{\strut}}\par}
+  \cczuplace{85}{179}{434}{\centering\heiti\bfseries\fontsize{26bp}{34bp}\selectfont
+    常\enspace 州\enspace 大\enspace 学\par}
+  \cczuplace{85}{227}{434}{\centering\songti\bfseries\fontsize{25bp}{33bp}\selectfont
+    硕\enspace 士\enspace 学\enspace 位\enspace 论\enspace 文\par}
+  \cczuplace{85}{362}{434}{\centering\heiti\zihao{2}\hdu@titleA\par\hdu@titleB\par}
+  \cczuplace{134}{484}{346}{\fangsong\zihao{3}\selectfont
+    \setlength{\baselineskip}{31bp}\setlength{\parindent}{0pt}%
+    \cczulabel{研 究 生 姓 名}\cczurule{}\par
+    \cczulabel{指 导 教 师 姓 名}\cczurule{}\par
+    \cczulabel{申 请 学 位 类 别}\cczurule{\hdu@degreeCategory}\par
+    \cczulabel{专 业 名 称}\cczurule{\hdu@discipline}\par
+    \cczulabel{研 究 方 向}\cczurule{\hdu@field}\par}
+  \cczuplace{85}{737}{434}{\centering\songti\zihao{3}\hdu@date\par}
+}
+\clearpage
+\thispagestyle{empty}\null
+\cczuoverlay{%
+  \cczuplace{85}{157}{434}{\centering\rmfamily\bfseries\fontsize{18bp}{32bp}\selectfont
+    \setlength{\baselineskip}{32bp}\hdu@title@en\par}
+  \cczuplace{85}{255}{434}{\centering\rmfamily\bfseries\fontsize{18bp}{32bp}\selectfont
+    \setlength{\baselineskip}{32bp}A Dissertation Submitted to\par Changzhou University\par}
+  \cczuplace{85}{353}{434}{\centering\rmfamily\bfseries\fontsize{18bp}{32bp}\selectfont By\par}
+  \cczuplace{85}{419}{434}{\centering\rmfamily\bfseries\fontsize{18bp}{32bp}\selectfont
+    \vphantom{Author}\par\vspace{16bp}(\hdu@discipline@en)\par}
+  \cczuplace{85}{582}{434}{\centering\rmfamily\bfseries\fontsize{18bp}{32bp}\selectfont
+    Dissertation Supervisor: \makebox[75bp]{}\par}
+  \cczuplace{85}{680}{434}{\centering\rmfamily\bfseries\fontsize{18bp}{32bp}\selectfont\hdu@date@en\par}
+}
+\clearpage
+\thispagestyle{empty}\null
+\cczuoverlay{%
+  \cczuplace{85}{88.5}{434}{\songti\zihao{4}\selectfont
+    \setlength{\baselineskip}{27bp}\setlength{\parindent}{2\ccwd}\setlength{\parskip}{0pt}%
+    {\centering\heiti\bfseries\zihao{-2}常州大学学位论文原创性声明\par}
+    \vspace{3.8bp}
+    本人郑重声明：所呈交的学位论文是本人在导师指导下独立进行的研究工作及取得的研究成果。除文中已经注明引用的内容外，本论文不含任何其他个人或集体已经发表或撰写过的作品成果。对本文的研究做出重要贡献的个人和集体，均已在论文中以明确方式标明。本人已完全意识到本声明的法律结果由本人承担。\par
+    \vspace{25.3bp}\cczusignature[238bp]{作者签名}
+    \vspace{51.6bp}
+    {\centering\heiti\bfseries\zihao{-2}学位论文版权使用授权的说明\par}
+    \vspace{3.8bp}
+    本学位论文作者完全了解常州大学有关保留、使用学位论文的规定，即：研究生在校攻读学位期间论文工作的知识产权单位属常州大学。学校有权保留并向国家有关部门或机构送交论文的复印件和磁盘，允许论文被查阅和借阅。学校可以公布学位论文的全部或部分内容，可以采用影印、缩印或扫描等复制手段保存、汇编本学位论文。\par
+    $\square$保密论文注释：本学位论文属于保密范围，在\underline{\hspace{30bp}}年解密后适用本授权书。\par
+    $\square$非保密论文注释：本学位论文不属于保密范围，适用本授权书。\par
+    \vspace{27bp}\cczusignature{作者签名}
+    \vspace{27bp}\cczusignature{导师签名}
+  }
+}
+\clearpage
+\makeatother

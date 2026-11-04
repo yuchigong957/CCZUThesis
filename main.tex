@@ -1,0 +1,116 @@
+% !TEX program = xelatex
+% !TeX encoding = UTF-8
+% 格式来源：demo.docx，仅提取版式。
+\documentclass[oneside,fontset=windows]{hduthesis}
+\usepackage{physics,mathrsfs,threeparttable,booktabs,longtable,tabularx,enumitem}
+\setmainfont{Times New Roman}
+\usepackage{eso-pic}
+\graphicspath{{figures/}}
+
+% 论文信息；个人信息留空。
+\hdusetup{
+    title = {论文题目},
+    titleA = {论文题目},
+    titleB = {},
+    title* = {Thesis Title},
+    author = {}, author* = {},
+    supervisor = {}, supervisor* = {}, supervisorB = {},
+    discipline = {专业名称}, discipline* = {Discipline},
+    school = {学院名称}, studentID = {},
+    date = {年\quad 月}, date* = {Month, Year},
+    secretLevel = {}, degreeCategory = {学位类别}, field = {研究方向}
+}
+
+\geometry{a4paper,top=3cm,bottom=2.5cm,left=3cm,right=2.5cm,
+    headheight=14bp,headsep=\dimexpr1.5cm-14bp\relax,footskip=0.8cm}
+\setlength{\emergencystretch}{2em}
+\ctexset{
+    chapter={format=\raggedright\heiti\zihao{-3},name={,},
+        number=\arabic{chapter},aftername=\hspace{1em},
+        beforeskip=0bp,afterskip=15.6bp,fixskip=true},
+    section={format=\raggedright\heiti\zihao{4},
+        beforeskip=15.6bp,afterskip=15.6bp,aftername=\hspace{1em}},
+    subsection={format=\raggedright\heiti\zihao{-4},
+        indent=0pt,beforeskip=15.6bp,afterskip=15.6bp,
+        aftername=\hspace{1em}}
+}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}}
+\renewcommand{\thetable}{\thechapter-\arabic{table}}
+\renewcommand{\theequation}{\thechapter-\arabic{equation}}
+\captionsetup{font={hdu},labelsep=space,justification=centering}
+\captionsetup[table]{position=top,skip=6bp}
+\captionsetup[figure]{position=bottom,skip=6bp}
+
+\makeatletter
+\newcommand{\cczubodyfont}{\songti\zihao{-4}\selectfont
+    \setlength{\baselineskip}{20bp}\setlength{\parskip}{0pt}
+    \setlength{\parindent}{2\ccwd}}
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[C]{\songti\zihao{5}\nouppercase{\leftmark}}
+    \fancyfoot[C]{\rmfamily\fontsize{9bp}{11bp}\selectfont\raisebox{0.8cm}{\thepage}}
+    \renewcommand{\headrulewidth}{0.4pt}
+}
+\fancypagestyle{preliminary}{
+    \fancyhf{}\fancyfoot[C]{\rmfamily\fontsize{9bp}{11bp}\selectfont\raisebox{0.8cm}{\thepage}}
+    \renewcommand{\headrulewidth}{0pt}
+}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\quad #1}{}}
+\newcommand{\cczuheading}[2]{%
+    \begingroup\ctexset{chapter={format=\centering\heiti\bfseries\zihao{3},
+      beforeskip=8.6bp,afterskip=30bp}}%
+    \chapter*{#1}\endgroup
+    \markboth{#2}{#2}\addcontentsline{toc}{chapter}{#2}}
+\renewcommand{\maketitle}{\input{data/frontmatter}}
+\renewcommand{\frontmatter}{\clearpage\@mainmatterfalse
+    \pagenumbering{Roman}\pagestyle{preliminary}}
+\renewcommand{\mainmatter}{\clearpage\@mainmattertrue
+    \pagenumbering{arabic}\pagestyle{plain}\cczubodyfont}
+\renewenvironment{abstract}{
+    \cczuheading{中\enspace 文\enspace 摘\enspace 要}{中文摘要}
+    \thispagestyle{preliminary}\pagestyle{preliminary}
+    \songti\zihao{4}\selectfont\setlength{\baselineskip}{20bp}
+    \setlength{\parindent}{2\ccwd}
+}{\par\medskip\noindent{\heiti 关键词：}\hdu@keywords\par}
+\renewenvironment{abstract*}{
+    \cczuheading{\rmfamily ABSTRACT}{ABSTRACT}
+    \thispagestyle{preliminary}\pagestyle{preliminary}
+    \rmfamily\zihao{4}\selectfont\setlength{\baselineskip}{20bp}
+    \setlength{\parindent}{2em}
+}{\par\medskip\noindent\textbf{Keywords: }\hdu@keywords@en\par\clearpage}
+\renewcommand{\tableofcontents}{
+    \cczuheading{目\quad 录}{目录}
+    \thispagestyle{preliminary}\pagestyle{preliminary}
+    \cczubodyfont\@starttoc{toc}}
+\renewenvironment{acknowledgements}{
+    \cczuheading{致\qquad 谢}{致谢}\cczubodyfont
+}{\par\clearpage}
+\makeatother
+\titlecontents{chapter}[0pt]{\songti\zihao{-4}\selectfont}
+    {\contentspush{\thecontentslabel\hspace{1em}}}{}{\titlerule*[4bp]{.}\thecontentspage}
+\titlecontents{section}[2\ccwd]{\songti\zihao{-4}\selectfont}
+    {\contentspush{\thecontentslabel\hspace{1em}}}{}{\titlerule*[4bp]{.}\thecontentspage}
+\titlecontents{subsection}[4\ccwd]{\songti\zihao{-4}\selectfont}
+    {\contentspush{\thecontentslabel\hspace{1em}}}{}{\titlerule*[4bp]{.}\thecontentspage}
+
+\AtBeginDocument{\cczubodyfont\hypersetup{pageanchor=false,pdfauthor={}}}
+\begin{document}
+\maketitle
+\frontmatter
+\hypersetup{pageanchor=true}
+\input{data/abstract}
+\tableofcontents
+\mainmatter
+\input{data/chap01}
+\clearpage
+\phantomsection
+\markboth{参考文献}{参考文献}
+\addcontentsline{toc}{chapter}{参考文献}
+\nocite{*}
+\bibliographystyle{gbt7714-2005-numerical}
+\bibliography{ref}
+\input{data/appendix}
+\IfFileExists{data/acknowledgements.tex}{\input{data/acknowledgements}}{}
+\end{document}
