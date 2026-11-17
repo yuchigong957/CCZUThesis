@@ -1,0 +1,351 @@
+% !TeX program = latexmk
+% 完整框架填写模板：替换占位内容；字体、行距与页面布局由类文件统一设置。
+\documentclass{研究生大论文模板}
+% 三线表：上下线1.5bp、中线0.6bp，横线上下各留白2bp，统一使用常规行高。
+\makeatletter
+\renewcommand{\thesistablecompact}{\thesistablenormal}
+\appto\thesis@tablefont{%
+  \setlength{\heavyrulewidth}{1.5bp}%
+  \setlength{\lightrulewidth}{0.6bp}%
+  \setlength{\aboverulesep}{2bp}%
+  \setlength{\belowrulesep}{2bp}}
+\makeatother
+\thesistitle{论文题目}
+\thesisenglishtitle{Your Thesis Title}
+\thesisid{学生学号}
+\thesisauthor{学生姓名}
+\thesisenglishauthor{Your Name}
+\thesissupervisor{导师姓名}
+\thesisdegree{学位类别}
+\thesismajor{专业名称}
+\thesisresearch{研究方向}
+\thesisdate{XXXX年XX月}
+\thesisenglishdiscipline{Your Major}
+\thesisenglishsupervisor{Supervisor Name}
+\thesisenglishdate{Month, Year}
+\thesistype{硕士学位论文}
+
+\begin{document}
+\makecover
+% 默认声明及授权正文保留；签名、日期由本人按要求填写。
+\makeauthorization
+
+\begin{chineseabstract}
+% 中文摘要：宋体14bp，兼容原成稿基线27.24bp，首行缩进28bp，段前后0。
+% 直接输入自然段，空行分段，自动断行、跨页；勿用手工换行拼摘要。
+中文摘要，概述研究目的、方法、主要内容与结论。请根据自己的论文替换本段。
+
+（格式：摘要标题为黑体16磅加粗；正文宋体14磅、1.5倍行距，首行缩进28磅。关键词中英逐项对应，中文用全角分号、英文用半角分号分隔。）
+% 关键词继承摘要字号及行距，不缩进；替换后与英文关键词对应。
+\thesiskeywords{关键词一；关键词二；关键词三}
+\end{chineseabstract}
+
+\begin{englishabstract}
+% 英文摘要：Times New Roman 14bp，按字体度量使用约24.148bp基线，首行14bp。
+% 段前后0；用自己的英文摘要替换下列简短占位，勿保留填写说明。
+Replace this paragraph with your abstract.
+
+（格式：英文用Times New Roman；标题16磅加粗，正文及关键词14磅，正文1.5倍行距、首行缩进14磅，关键词标签加粗。）
+\thesisenglishkeywords{Keyword One; Keyword Two; Keyword Three}
+\end{englishabstract}
+
+\thesistableofcontents
+\mainmatter
+
+% 保留原示例全部章/节/小节；标题与提示均由学生按实际论文替换。
+% 正文：宋体/Times New Roman 12bp，固定20bp，首行24bp，段前后0。
+\section{绪论}
+\subsection{研究背景及意义}
+填写研究背景及意义的相关内容。参考文献引用示例\cite{korn,drachman,zhang,pu}，请替换为与正文内容对应的文献及引用。
+
+（格式：章标题黑体15磅、章首另页；A4页面，上、左边距约3cm，下、右约2.5cm，目录与页眉自动生成。二级、三级标题分别为黑体14、12磅，标题固定20磅行距、段前后各1行。正文宋体12磅，西文Times New Roman，固定20磅行距、首行缩进24磅、段前后0；空行分段。）
+
+\subsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+公式\eqref{eq:hnn}给出方程排版示例，请替换为自己的公式及说明。（格式：公式按章自动编号，用label定义标签、eqref自动引用，不手写编号；单行用equation，多行可嵌入aligned。文中英文、罗马字符采用Times New Roman字体，数学符号使用模板设置的数学字体。）
+% 常用公式方式一：equation 单行公式自动编号，用 label 定义标签、eqref 引用。
+% 复制下列示例时移除每行开头的百分号和空格；不要手写公式编号。
+% \begin{equation}
+%   E = mc^2.
+%   \label{eq:single-example}
+% \end{equation}
+% 式\eqref{eq:single-example}给出单行公式示例。
+%
+% 常用公式方式二：equation 内嵌 aligned，多行共用一个自动编号。
+% & 指定对齐位置，\\ 换行；label 和 eqref 的用法与单行公式相同。
+% \begin{equation}
+%   \begin{aligned}
+%     a &= b + c, \\
+%     d &= e + f.
+%   \end{aligned}
+%   \label{eq:aligned-example}
+% \end{equation}
+% 式\eqref{eq:aligned-example}给出多行对齐公式示例。
+%
+% 当前 thesisequation 是模板的局部公式间距控制环境，不是另一种科学公式写法。
+% 以下已有三式保留；普通公式可直接使用 equation 或 equation 内嵌 aligned。
+% 首式局部附加距仅适用于本式；换式后按需调整。
+% 显示公式接前文同一段：前文与环境之间勿留空行或显式 \par，避免额外空正文行。
+\begin{thesisequation}{3.940}{8.696}\label{eq:hnn}
+ C_i\dot{x}_i=-\frac{x_i}{R_i}+\sum_{j=1}^{n}w_{ij}f(x_j)+I_i.
+\end{thesisequation}
+\noindent 填写公式中各符号的定义。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsection{XXX}
+填写本节内容。
+
+表\ref{tab:first}给出表格排版示例，请替换为自己的表格及说明。（格式：表题在表上，五号楷体即10.5磅、固定20磅行距；表格中文字采用五号宋体、单倍行距，英文及罗马字符采用Times New Roman字体。三线表上下线为1.5磅，中线为0.6磅，横线上下各留白2磅，两张示例表均使用常规行高。用label定义标签、ref自动引用表号。）
+
+\begin{table}[htbp]
+\centering
+\caption{函数表达式示例（请替换）}\label{tab:first}
+\thesistablecompact % 已统一为常规行高，与第二张表示例一致
+\begin{tabular}{ccc}
+\toprule
+激活函数 & 表达式 & 参数\\
+\midrule
+双曲正切函数 & $f(x)=\tanh x$ & 无\\
+分段线性函数 & $f(x)=cx+\frac{a-c}{2}(|x+b|-|x-b|)$ & $a,b,c$\\[2bp] % 仅增加本行底部留白，避免分母贴近底线
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+图\ref{fig:first}给出图片排版示例，请替换为自己的图片及说明。（格式：图题在图下，五号楷体即10.5磅、固定20磅行距；图例说明采用五号宋体，英文及罗马字符采用Times New Roman字体。图片内部文字须在制图时设置，模板不会自动更改图片内字体；缩放后仍应清晰。子图用字母区分，续图沿用图号。用label定义标签、ref自动引用图号。）
+
+% 图片方式一：figure + includegraphics + caption + label 的单图。
+% 复制示例时移除每行开头的百分号和空格，并换成自己的图片文件及唯一标签。
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{论文样例_拓扑.jpg}
+%   \caption{单图题注}\label{fig:single-example}
+% \end{figure}
+% 图\ref{fig:single-example}演示单图引用。
+%
+% 图片方式二：一个 figure 内放两个 subfigure，用 hfill 并列排布。
+% 各子图有各自的 caption/label，末尾再给总 caption/label。
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.48\linewidth}
+%     \centering
+%     \includegraphics[width=\linewidth]{论文样例_子图1.jpg}
+%     \caption{左子图}\label{fig:pair-left-example}
+%   \end{subfigure}\hfill
+%   \begin{subfigure}{0.48\linewidth}
+%     \centering
+%     \includegraphics[width=\linewidth]{论文样例_子图2.jpg}
+%     \caption{右子图}\label{fig:pair-right-example}
+%   \end{subfigure}
+%   \caption{并列双子图总题注}\label{fig:pair-example}
+% \end{figure}
+% 图\ref{fig:pair-example}、子图\subref{fig:pair-left-example}演示组合图引用。
+% 图的 label 紧跟对应 caption，以取得正确编号；每个标签必须唯一。
+% [htbp] 允许在当前位置、页顶、页底或浮动页排版；仅必要时用 [H] 强制定位。
+% 以下实际图及续图框架保持不变，未增加实际图片。
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{212bp}\centering
+\includegraphics[width=212bp]{论文样例_子图1.jpg}
+\caption{子图示例}\label{fig:suba}
+\end{subfigure}\hfill
+\begin{subfigure}{212bp}\centering
+\includegraphics[width=212bp]{论文样例_子图2.jpg}
+\caption{子图示例}\label{fig:subb}
+\end{subfigure}
+% 原专门的激活函数电路图1-1题注为宋体；本组合图内容不同，不按编号套用。
+% 如需展示该局部角色，在 caption 前启用：\thesiscaptionstyle{font=thesissong}
+\caption{图片排版示例（请替换）}\label{fig:first}
+\end{figure}
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsection{研究目的及章节安排}
+填写研究目的及章节安排的相关内容。
+
+\subsubsection{研究目的及意义}
+填写研究目的及意义的相关内容。
+
+\subsubsection{章节安排}
+填写章节安排的相关内容。
+
+\section{XXX}
+填写本章正文。
+
+\subsection{XXX}
+公式\eqref{eq:second}给出向量方程排版示例，请替换为自己的公式及说明。
+\begin{thesisequation}{7.8}{7.8}\label{eq:second}
+ \dot{\symbfit{x}}=-\symbfit{x}+W\symbfit{f}(\symbfit{x}).
+\end{thesisequation}
+
+图\ref{fig:topology}给出单图排版示例，请替换为自己的图片及说明。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=409.5bp]{论文样例_拓扑.jpg}
+\thesiscaptionzeroskip
+\caption{图片排版示例（请替换）}\label{fig:topology}
+\end{figure}
+
+\subsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsection{XXX}
+填写本节内容。
+
+表\ref{tab:second}给出参数表排版示例，请替换为自己的表格及说明。
+
+\begin{table}[htbp]
+\centering
+\caption{参数表示例（请替换）}\label{tab:second}
+\thesistablenormal % 对应原参数/初始条件表：表内单倍，段前后各3.1bp近似
+\begin{tabular}{ccc}
+\toprule
+参数 & 初始条件 & 说明\\
+\midrule
+$(a,b,c)$ & $(x_1(0),x_2(0),x_3(0))$ & 待填写\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsection{本章小结}
+填写本章小结的相关内容。
+
+\section{XXX}
+填写本章正文。
+
+\subsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+公式\eqref{eq:third}给出另一方程排版示例，请替换为自己的公式及说明。
+\begin{thesisequation}[1.5]{0}{0}\label{eq:third}
+ \dot{\varphi}=x_1-x_2.
+\end{thesisequation}
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsection{XXX}
+填写本节内容。
+
+图\ref{fig:continued}给出组合图及续图排版示例，请替换为自己的图片及说明。
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图1.jpg}\caption{子图示例}\end{subfigure}\hfill
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图2.jpg}\caption{子图示例}\end{subfigure}
+\par\vspace{7.8bp}
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图3.jpg}\caption{子图示例}\end{subfigure}\hfill
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图4.jpg}\caption{子图示例}\end{subfigure}
+\caption{图片排版示例（请替换）}\label{fig:continued}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[H]
+\ContinuedFloat
+\centering
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图5.jpg}\caption{示例图题（请替换）}\end{subfigure}\hfill
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图8.jpg}\caption{示例图题（请替换）}\end{subfigure}
+\par\vspace{7.8bp}
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图6.jpg}\caption{示例图题（请替换）}\end{subfigure}\hfill
+\begin{subfigure}{212bp}\centering\includegraphics[width=212bp]{论文样例_子图7.jpg}\caption{示例图题（请替换）}\end{subfigure}
+\caption{组合图示例(续)}
+\end{figure}
+
+\clearpage
+
+\subsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsubsection{XXX}
+填写本节内容。
+
+\subsection{本章小结}
+填写本章小结的相关内容。
+
+\section{结论与展望}
+\subsection{研究结论}
+填写研究结论的相关内容。
+
+\subsection{研究展望}
+填写研究展望的相关内容。
+
+% 正文研究背景处已有cite引用示例，替换文献时同步更新正文引用及下列列表。
+% 明确列出示例keys，不用nocite{*}；替换bib条目时同步修改此处。
+\nocite{korn,drachman,zhang,pu}
+\bibliographystyle{thesis}
+\bibliography{refs}
+
+% 本段为学生可见的填写说明，放在书目之后；提交前删除，不改动文献编号。
+\begingroup
+\normalfont\songti\fontsize{12bp}{20bp}\selectfont\parindent=24bp\relax
+\par\vspace{10bp}
+（格式：参考文献标题黑体15磅；条目宋体10.5磅，英文Times New Roman，固定20磅行距、悬挂21磅。用\textbackslash cite\{key\}按首次引用顺序自动编号；本例以\textbackslash nocite列出4条，替换时同步修改refs.bib及文献键。）
+
+\par\noindent 几种主要参考文献著录的格式：
+\par 1、连续出版物：序号 作者．文题．刊名，年，卷号（期号）：起止页码
+\par 2、专（译）著：序号 作者．书名，（译者）．出版地：出版者，出版年，起止页码
+\par 3、论文集：序号 作者．文题．编者．文集名．出版地：出版者，出版年，起止页码
+\par 4、学位论文：序号 作者．文题．［XX学位论文］．授予单位所在地：授予单位，授予年
+\par 5、专利：序号 申请者．专利名．国名，专利种类，专利号，出版日期
+\par 6、技术标准：序号 发布单位．技术标准代号．技术标准名称．出版地：出版者，出版日期
+\par\endgroup
+
+\thesisbacksection[116.70]{攻读学位期间研究成果}
+% 编号按原Word采用[1]样式：小四号宋体，固定20磅；按实际成果替换占位。
+\begin{enumerate}[label={[\arabic*]},leftmargin=24bp,labelsep=6bp,itemsep=0bp,parsep=0bp,topsep=0bp]
+  \item 填写本人研究成果。（小四号宋体，行距固定值20磅。）
+  \item 填写本人研究成果。
+  \item 填写本人研究成果。
+  \item 填写本人研究成果。
+\end{enumerate}
+
+\thesisbacksection[152.28]{致谢}
+填写致谢，感谢在学习与研究期间给予帮助的个人和单位。
+
+（格式：致谢沿用正文12磅、固定20磅行距及首行缩进24磅，用自然段表达。）
+
+\end{document}
